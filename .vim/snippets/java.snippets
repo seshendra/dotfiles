@@ -1,0 +1,22 @@
+snippet tcc "test case"
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+ 
+public class ${1:`!p snip.rv = snip.basename or "untitled"`} {
+    @Before
+    public void setup() {
+        
+    }
+ 
+    @Test
+    public void test${2:Name}() throws Exception {
+        $0
+    }
+ 
+    @After
+    public void tearDown() {
+        
+    }
+}
+endsnippet
