@@ -87,5 +87,5 @@ set guifont=Menlo\ Regular:h14
 
 " open nerdree to current doc folder
 autocmd BufEnter * lcd %:p:h
-let delimitMate_expand_cr = 1
+
 runtime! config/**/*.vim

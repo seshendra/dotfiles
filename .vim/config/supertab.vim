@@ -1,6 +1,6 @@
 " Remap autocomplete menu control keys
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr> j pumvisible() ? "\<C-n>" : "j"
 inoremap <expr> k pumvisible() ? "\<C-p>" : "k"
 inoremap <expr> h pumvisible() ? "\<PageUp>\<C-n>\<C-p>" : "h"
