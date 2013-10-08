@@ -230,6 +230,14 @@ cdf() {
 # zipf: to create a ZIP archive of a file or folder
 zipf () { zip -r "$1".zip "$1" ; }
 
+# Create a new basic Java project using Gradle
+function newp() {
+   mkdir -p "$@" && cd "$@" 
+   gradle setupBuild --type java-library
+   perl -i -lne 'print $_;print "apply plugin: \x27eclipse\x27" if(/apply/);' build.gradle
+   gradle eclipse
+} 
+
 # bookmark folders: http://d.pr/AP7P
 export MARKPATH=$HOME/.marks
 function jump {
