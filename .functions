@@ -236,6 +236,8 @@ function newp() {
    gradle setupBuild --type java-library
    perl -i -lne 'print $_;print "apply plugin: \x27eclipse\x27" if(/apply/);' build.gradle
    gradle eclipse
+   rm -fr src/main/java/Library.java
+   rm -fr src/test/java/LibraryTest.java
 } 
 
 # bookmark folders: http://d.pr/AP7P

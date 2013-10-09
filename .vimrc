@@ -87,5 +87,5 @@ set guifont=Menlo\ Regular:h14
 
 " open nerdree to current doc folder
 autocmd BufEnter * lcd %:p:h
-
+map <F4> :w<CR> :compiler gradle<CR> :make test<CR>:cw 4<CR>
 runtime! config/**/*.vim
