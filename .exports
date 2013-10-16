@@ -39,11 +39,6 @@ export PATH=$PATH:$GRADLE_HOME/bin
 # Ant
 export ANT_HOME=/Volumes/data/Users/luciano/tools/apache-ant-1.8.4
 export PATH=$PATH:$ANT_HOME/bin
-# SCALA
-export SCALA_HOME=/Volumes/data/Users/luciano/tools/scala-2.10.0
-export PATH=$PATH:$SCALA_HOME/bin
-# WLS 10.3.6
-export MW_HOME=$HOME/tools/wls1036_dev
 
 # EC2
 export EC2_HOME=$HOME/tools/ec2-api-tools-1.6.7.2
