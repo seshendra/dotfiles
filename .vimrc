@@ -7,7 +7,7 @@ set wildmenu                    " Enhance command-line completion
 set backspace=indent,eol,start  " Allow backspace in insert mode
 set ttyfast                     " Optimize for fast terminal connections
 set gdefault                    " Add the g flag to search/replace by default
-set binary                      
+set binary
 set noeol                       " Don’t add empty newlines at the end of files
 set modeline                    " Respect modeline in files
 set ignorecase                  " Ignore case of searches
@@ -64,9 +64,6 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" bind ctrl+space for omnicompletion
-"inoremap <C-Space> <C-x><C-o>
-
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
   let save_cursor = getpos(".")
@@ -87,5 +84,35 @@ set guifont=Menlo\ Regular:h14
 
 " open nerdree to current doc folder
 autocmd BufEnter * lcd %:p:h
+" compile gradle
 map <F4> :w<CR> :compiler gradle<CR> :make test<CR>:cw 4<CR>
+" This rewires n and N to do the highlighing...
+nnoremap <silent> n   n:call HLNext(0.4)<cr>
+nnoremap <silent> N   N:call HLNext(0.4)<cr>
+
+
+" highlight 81 chars (tip from Damian Conway)
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+function! HLNext (blinktime)
+    highlight WhiteOnRed ctermfg=white ctermbg=red
+
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+    let target_pat = '\c\%#'.@/
+    let ring = matchadd('WhiteOnRed', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
+
+" Use space to jump down a page (like browsers do)...
+nnoremap <Space> <PageDown>
+
+" Make tabs, trailing whitespace, and non-breaking spaces visible
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
 runtime! config/**/*.vim
