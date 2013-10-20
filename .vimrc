@@ -64,15 +64,9 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Faster split resizing (+,-)
-if bufwinnr(1)
-    map + <C-W>+
-    map - <C-W>-
-endif
-
 " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
 map <C-j> <C-W>j
-map <C-k> <C-W>k
+map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
@@ -125,6 +119,7 @@ endfunction
 
 " Use space to jump down a page (like browsers do)...
 nnoremap <Space> <PageDown>
+
 
 " Make tabs, trailing whitespace, and non-breaking spaces visible
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
