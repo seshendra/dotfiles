@@ -39,6 +39,10 @@ set showmode                    " Show the current mode
 set modelines=4
 set t_Co=256                    " Set 256 colors
 
+" Disable visual bell
+autocmd GUIEnter * set vb t_vb= " for your GUI
+autocmd VimEnter * set vb t_vb=
+
 " enable pathogen
 execute pathogen#infect()
 
@@ -119,10 +123,5 @@ endfunction
 
 " Use space to jump down a page (like browsers do)...
 nnoremap <Space> <PageDown>
-
-
-" Make tabs, trailing whitespace, and non-breaking spaces visible
-exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-set list
 
 runtime! config/**/*.vim
