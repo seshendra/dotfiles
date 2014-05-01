@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-config files for bash, completions, git, vim, etc.
+Vim config for many plugins some of the prominent onces include eclim, nerdtree and solarized
